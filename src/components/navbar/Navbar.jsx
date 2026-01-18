@@ -33,7 +33,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="   flex flex-col shadow-sm">
+    <div className="w-[280px] h-screen sticky top-0 bg-white flex flex-col shadow-sm shrink-0">
       {/* Logo */}
       <div className="   p-6   ">
           <img src={logo} alt="logo" className="w-[107.31px] h-[30px]   " />

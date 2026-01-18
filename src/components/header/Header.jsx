@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../../store/hooks'
+import ProfilePng from '../../assets/Ellipse 1.png'
 
 const Header = () => {
   const { user } = useAppSelector((state) => state.user)
@@ -31,7 +32,7 @@ const Header = () => {
         <div className="flex items-center gap-3 pl-6">
           <div className="w-10 h-10 rounded-full overflow-hidden">
             <img 
-              src={`https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=random`}
+              src={ProfilePng}
               alt="User" 
               className="w-full h-full object-cover"
             />

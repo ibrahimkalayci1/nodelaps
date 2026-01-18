@@ -12,7 +12,8 @@ import {
 import Icon from '../../assets/Icon.png'
 import Icon1Png from '../../assets/Icon1.png'
 import Icon2Png from '../../assets/Icon2.png'
-import WalletSchedulePng from '../../assets/WalletSchedule.png'
+import { RestoredWalletWidgets } from '../../components/RestoredWalletWidgets'
+
 
 const DashboardHome = () => {
   const dispatch = useAppDispatch()
@@ -105,16 +106,16 @@ const DashboardHome = () => {
   const chartWidth = 700
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8">
+    <div className="flex flex-col xl:flex-row gap-8">
       {/* LEFT CONTENT (approx 70%) */}
       <div className="flex-1 space-y-8">
         {/* Summary Cards */}
         {/* Summary Cards */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {summaryCards.map((card, index) => (
             <div
               key={index}
-              className={`${card.bgColor} ${card.textColor} flex items-center gap-[15px] rounded-[10px] w-full max-w-[222px]`}
+              className={`${card.bgColor} ${card.textColor} flex items-center gap-[15px] rounded-[10px] w-full`}
               style={{ height: '105px', padding: '24px 20px' }}
             >
               <div className={`${card.iconBg} w-12 h-12 rounded-full flex items-center justify-center shrink-0`}>
@@ -287,14 +288,21 @@ const DashboardHome = () => {
       </div>
 
       {/* RIGHT SIDEBAR (Adjusted to prevent overlap and fix clipping) */}
-      <div className="w-full lg:w-[340px] shrink-0 lg:ml-4 mt-6 overflow-visible">
-        <img 
-          src={WalletSchedulePng} 
-          alt="Wallet and Schedule" 
-          className="w-full h-auto object-contain rounded-[24px] lg:translate-x-4"
-          style={{ maxHeight: '720px' }}
-        />
-      </div>
+      {/* RIGHT SIDEBAR (Adjusted to prevent overlap and fix clipping) */}
+    
+    
+    
+    
+    
+      <RestoredWalletWidgets 
+        wallet={wallet} 
+        scheduledTransfers={scheduledTransfers} 
+        totalBalance={summaryData?.totalBalance?.amount !== undefined ? summaryData.totalBalance.amount : (summaryData?.totalBalance || 0)}
+      />
+
+
+
+
     </div>
   )
 }

@@ -234,7 +234,7 @@ export const getUserProfile = createAsyncThunk(
   'user/getProfile',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await userAPI.getProfile();
+      const response = await userAPI.profile();
       const data = response.data.data || response.data;
       return data;
     } catch (error) {
