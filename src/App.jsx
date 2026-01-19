@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import ErrorBoundary from "./components/ErrorBoundary";
 import AuthLayout from "./layouts/AuthLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 
@@ -18,8 +19,9 @@ import Help from "./pages/dashboard/Help";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
 
         {/* AUTH */}
         <Route element={<AuthLayout />}>
@@ -44,20 +46,21 @@ function App() {
         {/* 404 */}
         <Route path="*" element={<Navigate to="/signin" />} />
 
-      </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </BrowserRouter>
+        </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 

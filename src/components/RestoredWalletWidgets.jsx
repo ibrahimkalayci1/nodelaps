@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDateTime, formatCurrencySimple } from '../utils/formatters';
 
 // Assets
 import AvatarPng from '../assets/Avater.png';
@@ -32,11 +33,13 @@ export const RestoredWalletWidgets = ({ wallet, scheduledTransfers, totalBalance
   };
 
   return (
-    <div className="w-full xl:w-[340px] shrink-0 xl:ml-4 mt-6 space-y-8">
+    <div className="w-full xl:w-[340px] shrink-0 xl:ml-4 space-y-6 lg:space-y-8">
         
         {/* My Wallet Widget */}
-        <div className="bg-white p-6 rounded-[24px] shadow-sm">
-          <h2 className="text-[18px] font-bold text-[#1A1D1F] mb-6"> Wallet</h2>
+        <div className="bg-white p-6 lg:p-8 rounded-[24px] shadow-sm hover:shadow-md transition-all duration-300 animate-slide-in">
+          <h2 className="text-lg lg:text-[18px] font-bold text-[#1A1D1F] mb-6" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
+            Wallet
+          </h2>
           
           {/* Cards Container */}
           <div className="relative h-[320px]">
@@ -61,11 +64,11 @@ export const RestoredWalletWidgets = ({ wallet, scheduledTransfers, totalBalance
                     <div className="flex justify-between items-start">
                       <div>
                         {/* Dynamic Bank Name with styling if it matches the pattern */}
-                        <div className="text-xs mb-1">
+                        <div className="text-xs mb-1" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
                            {(() => {
                               const rawBank = card.bank || 'Universal Bank';
                               const bankName = rawBank.replace('Maglo', 'Fintech.');
-                              const textColor = card.color === '#FFFFFF' ? 'text-[#1A1D1F]' : 'text-white';
+                              const textColor = card.color === '#FFFFFF' ? 'text-[#1B212D]' : 'text-white';
                               
                               if (bankName.includes('|')) {
                                 return (
@@ -80,26 +83,15 @@ export const RestoredWalletWidgets = ({ wallet, scheduledTransfers, totalBalance
                         </div>
                         {/* Balance removed as per user request */}
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                        {/* Network Icon Logic */}
-                        {card.network === 'Visa' ? (
-                           null
-                        ) : (
-                           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                              <circle cx="7" cy="12" r="7" fill="#EB001B" fillOpacity="0.8"/>
-                              <circle cx="17" cy="12" r="7" fill="#F79E1B" fillOpacity="0.8"/>
-                           </svg>
-                        )}
-                      </div>
                     </div>
 
                     <div>
                        <div className="flex justify-between items-end mb-4">
-                        <div className="text-lg tracking-widest font-mono">
+                        <div className="text-base lg:text-lg tracking-widest font-mono" style={{ fontFamily: 'monospace' }}>
                           {card.cardNumber || '**** **** **** 8844'}
                         </div>
                        </div>
-                       <div className="flex justify-between items-center text-xs opacity-80">
+                       <div className="flex justify-between items-center text-xs opacity-80" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
                           <div>
                              <div className="opacity-60 text-[10px] mb-0.5">Card Holder</div>
                              <div>{card.name || 'Card Holder'}</div>
@@ -126,10 +118,14 @@ export const RestoredWalletWidgets = ({ wallet, scheduledTransfers, totalBalance
         </div>
 
         {/* Scheduled Transfers */}
-        <div className="bg-white p-6 rounded-[24px] shadow-sm">
+        <div className="bg-white p-6 lg:p-8 rounded-[24px] shadow-sm hover:shadow-md transition-all duration-300 animate-slide-in">
            <div className="flex items-center justify-between mb-6">
-            <h2 className="text-[18px] font-bold text-[#1A1D1F]">Scheduled Transfers</h2>
-            <button className="text-[#10B981] text-xs font-bold hover:underline">View All &gt;</button>
+            <h2 className="text-lg lg:text-[18px] font-bold text-[#1A1D1F]" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
+              Scheduled Transfers
+            </h2>
+            <button className="text-[#10B981] text-xs font-bold hover:underline" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
+              View All &gt;
+            </button>
           </div>
           
           <div className="space-y-6">
@@ -138,30 +134,43 @@ export const RestoredWalletWidgets = ({ wallet, scheduledTransfers, totalBalance
                 const transferImg = avatarMap[transfer.name?.trim()] || transfer.image;
                 
                 return (
-                  <div key={idx} className="flex items-center gap-4">
+                  <div key={idx} className="flex items-center gap-4 hover:bg-[#F8F9FB] p-2 rounded-lg transition-all duration-200 -mx-2">
                     <div className="w-10 h-10 rounded-full bg-[#FAFAFA] border border-[#F4F4F4] flex items-center justify-center shrink-0 overflow-hidden">
                        {transferImg ? (
                           <img src={transferImg} alt={transfer.name} className="w-full h-full object-cover" />
                        ) : (
-                          <div className="text-xs font-bold text-[#1A1D1F]">
+                          <div className="text-xs font-bold text-[#1A1D1F]" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
                             {transfer.name?.charAt(0) || 'U'}
                           </div>
                        )}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-[#1A1D1F] truncate">{transfer.name || 'Unknown User'}</div>
-                      <div className="text-[11px] text-[#6F767E]">
-                        {new Date(transfer.date || Date.now()).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+                      <div className="text-sm font-semibold text-[#1A1D1F] truncate" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
+                        {transfer.name || 'Unknown User'}
+                      </div>
+                      <div className="text-[11px] text-[#6F767E]" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
+                        {(() => {
+                          const date = transfer.date || Date.now();
+                          const formattedDate = new Date(date).toLocaleDateString('en-US', { 
+                            day: 'numeric', 
+                            month: 'long', 
+                            year: 'numeric' 
+                          });
+                          const time = transfer.time || '11:00';
+                          return `${formattedDate} at ${time}`;
+                        })()}
                       </div>
                     </div>
-                    <div className="text-sm font-bold text-[#1A1D1F]">
-                      {transfer.amount < 0 ? '-' : ''}${(Math.abs(transfer.amount || 0)).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                    <div className="text-sm font-bold text-[#1A1D1F]" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
+                      {transfer.amount < 0 ? '-' : ''}{formatCurrencySimple(Math.abs(transfer.amount || 0))}
                     </div>
                   </div>
                 );
               })
             ) : (
-                <div className="text-sm text-[#6F767E] text-center py-4">No scheduled transfers</div>
+                <div className="text-sm text-[#6F767E] text-center py-4" style={{ fontFamily: 'Kumbh Sans, sans-serif' }}>
+                  No scheduled transfers
+                </div>
             )}
           </div>
         </div>

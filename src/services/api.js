@@ -34,7 +34,9 @@ api.interceptors.response.use(
 export const userAPI = {
   register: (data) => api.post('/users/register', data),
   login: (data) => api.post('/users/login', data),
+  logout: () => api.post('/users/logout'),
   profile: () => api.get('/users/profile'),
+  refreshToken: (refreshToken) => api.post('/users/refresh-token', { refreshToken }),
 };
 
 export const financialAPI = {
