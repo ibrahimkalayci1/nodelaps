@@ -1,76 +1,25 @@
-# React + TypeScript + Vite
+🚀 Nodelabs - Modern Finansal Yönetim Paneli
+Nodelabs, kullanıcıların tüm finansal hareketlerini tek bir noktadan, şık ve performanslı bir arayüzle yönetmelerini sağlayan kapsamlı bir dashboard uygulamasıdır. Finansal verilerin takibini kolaylaştırırken, modern web teknolojilerinin gücünü kullanıcı deneyimiyle birleştirir.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ Öne Çıkan Özellikler
+📊 Dinamik Dashboard: Toplam bakiye, harcamalar ve tasarrufların anlık takibi ve görselleştirilmesi.
+💳 Cüzdan & Kart Yönetimi: Çoklu kart desteği ve hesap hareketlerinin detaylı görünümü.
+📑 İşlem ve Fatura Takibi: Geçmiş işlemlerin, faturaların ve kullanıcı hareketlerinin düzenli listelenmesi.
+🔐 Güvenli Kimlik Doğrulama: JWT tabanlı modern giriş ve kayıt süreçleri.
+⚙️ Özelleştirilebilir Ayarlar: Kullanıcı profili ve panel tercihlerinin yönetimi.
+📱 Tam Duyarlı Tasarım: Mobil, tablet ve masaüstü cihazlar için optimize edilmiş, kusursuz kullanıcı deneyimi.
+🛠 Kullanılan Teknolojiler
+Proje, güncel ve yüksek performanslı bir teknoloji yığını (tech-stack) ile geliştirilmiştir:
 
-## React Compiler
+Frontend Core: React 19 - Bileşen tabanlı, hızlı ve modern yapı.
+Build Tool: Vite 7 - Yeni nesil, ultra hızlı geliştirme ortamı.
+Styling: Tailwind CSS 4 - Modern ve esnek tasarım sistemi.
+State Management: Redux Toolkit - Merkezi ve tutarlı veri akışı yönetimi.
+Routing: React Router 7 - Güçlü ve esnek sayfa yönlendirme.
+API Client: Axios - Güvenilir ve kolay HTTP istekleri.
+Notifications: React Toastify - Şık ve kullanıcı dostu etkileşim bildirimleri.
+Language: JavaScript  ve ölçeklenebilir kod mimarisi.      
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# finteckauth
-# nodelaps
-# nodelaps
+![Zight Recording 2026-01-19 at 09 17 47 PM](https://github.com/user-attachments/assets/a0303c4f-d0d7-4e71-828a-e975cf63778a)
